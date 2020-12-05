@@ -1,0 +1,71 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                    <h4 class="card-title">Active Containment Zones</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table tablesorter " id="">
+                            <thead class=" text-primary">
+                            <tr>
+                                {% for heading in table_heads %}
+                                <th>
+                                    {{ heading }}
+                                </th>
+                                {% endfor %}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in dataList %}
+                                <tr>
+                                    {% if title == 'Containment Zones' %}
+                                        <td>
+                                            {{ item.id }}
+                                        </td>
+                                        <td>
+                                            {{ item.district }}
+                                        </td>
+                                        <td>
+                                            {{ item.area }}
+                                        </td>
+                                        <td>
+                                            {{ item.ward }}
+                                        </td>
+                                    {% elif title == 'Essentials Request' %}
+                                        <td>
+                                            {{ item.request_id }}
+                                        </td>
+                                        <td>
+                                            {{ item.name }}
+                                        </td>
+                                        <td>
+                                            {{ item.contact_number }}
+                                        </td>
+                                        <td>
+                                            {{ item.required_items }}
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,445 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+        <style>
+            .card-title {
+                padding: 20px 0 0 20px;
+            }
+
+            .card-text {
+                font-size: 3em;
+                text-align: right;
+                font-weight: bolder;
+                padding: 0 40px 20px 0;
+            }
+        </style>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Total Confirmed</h1>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text"> 495,712</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Active Cases</h1>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text"> 78,694</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Recovered</h1>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text"> 415,158 </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Deaths</h1>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text"> 1,742 </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card card-chart">
+                <div class="card-header ">
+                    <div class="row">
+                        <div class="col-sm-6 text-left">
+                            <h5 class="card-category">Updated on 10-11-2020 9:01 pm</h5>
+                            <h2 class="card-title">COVID CASES</h2>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                                <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                                    <input type="radio" name="options" checked>
+                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Recovered</span>
+                                    <span class="d-block d-sm-none">
+                                        <i class="tim-icons icon-single-02"></i>
+                                    </span>
+                                </label>
+                                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                                    <input type="radio" class="d-none d-sm-none" name="options">
+                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Active</span>
+                                    <span class="d-block d-sm-none">
+                                        <i class="tim-icons icon-gift-2"></i>
+                                    </span>
+                                </label>
+                                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                                    <input type="radio" class="d-none" name="options">
+                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Confirmed</span>
+                                    <span class="d-block d-sm-none">
+                                        <i class="tim-icons icon-tap-02"></i>
+                                    </span>
+                                </label>
+                                <label class="btn btn-sm btn-primary btn-simple" id="3">
+                                    <input type="radio" class="d-none" name="options">
+                                    <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Deaths</span>
+                                    <span class="d-block d-sm-none">
+                                        <i class="tim-icons icon-tap-02"></i>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area" style="height: 450px">
+                        <canvas id="chartBig1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <script>
+
+        demo = {
+            initDashboardPageCharts: function () {
+
+                gradientChartOptionsConfigurationWithTooltipBlue = {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+
+                    tooltips: {
+                        backgroundColor: '#f5f5f5',
+                        titleFontColor: '#333',
+                        bodyFontColor: '#666',
+                        bodySpacing: 4,
+                        xPadding: 12,
+                        mode: "nearest",
+                        intersect: 0,
+                        position: "nearest"
+                    },
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.0)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                suggestedMin: 60,
+                                suggestedMax: 125,
+                                padding: 20,
+                                fontColor: "#2380f7"
+                            }
+                        }],
+
+                        xAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.1)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#2380f7"
+                            }
+                        }]
+                    }
+                };
+
+                gradientChartOptionsConfigurationWithTooltipPurple = {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+
+                    tooltips: {
+                        backgroundColor: '#f5f5f5',
+                        titleFontColor: '#333',
+                        bodyFontColor: '#666',
+                        bodySpacing: 4,
+                        xPadding: 12,
+                        mode: "nearest",
+                        intersect: 0,
+                        position: "nearest"
+                    },
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.0)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                suggestedMin: 60,
+                                suggestedMax: 125,
+                                padding: 20,
+                                fontColor: "#9a9a9a"
+                            }
+                        }],
+
+                        xAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(225,78,202,0.1)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#9a9a9a"
+                            }
+                        }]
+                    }
+                };
+
+                gradientChartOptionsConfigurationWithTooltipOrange = {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+
+                    tooltips: {
+                        backgroundColor: '#f5f5f5',
+                        titleFontColor: '#333',
+                        bodyFontColor: '#666',
+                        bodySpacing: 4,
+                        xPadding: 12,
+                        mode: "nearest",
+                        intersect: 0,
+                        position: "nearest"
+                    },
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.0)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                suggestedMin: 50,
+                                suggestedMax: 110,
+                                padding: 20,
+                                fontColor: "#ff8a76"
+                            }
+                        }],
+
+                        xAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(220,53,69,0.1)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#ff8a76"
+                            }
+                        }]
+                    }
+                };
+
+                gradientChartOptionsConfigurationWithTooltipGreen = {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+
+                    tooltips: {
+                        backgroundColor: '#f5f5f5',
+                        titleFontColor: '#333',
+                        bodyFontColor: '#666',
+                        bodySpacing: 4,
+                        xPadding: 12,
+                        mode: "nearest",
+                        intersect: 0,
+                        position: "nearest"
+                    },
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.0)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                suggestedMin: 50,
+                                suggestedMax: 125,
+                                padding: 20,
+                                fontColor: "#9e9e9e"
+                            }
+                        }],
+
+                        xAxes: [{
+                            barPercentage: 1.6,
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(0,242,195,0.1)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#9e9e9e"
+                            }
+                        }]
+                    }
+                };
+
+
+                gradientBarChartConfiguration = {
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false
+                    },
+
+                    tooltips: {
+                        backgroundColor: '#f5f5f5',
+                        titleFontColor: '#333',
+                        bodyFontColor: '#666',
+                        bodySpacing: 4,
+                        xPadding: 12,
+                        mode: "nearest",
+                        intersect: 0,
+                        position: "nearest"
+                    },
+                    responsive: true,
+                    scales: {
+                        yAxes: [{
+
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.1)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                suggestedMin: 60,
+                                suggestedMax: 120,
+                                padding: 20,
+                                fontColor: "#9e9e9e"
+                            }
+                        }],
+
+                        xAxes: [{
+
+                            gridLines: {
+                                drawBorder: false,
+                                color: 'rgba(29,140,248,0.1)',
+                                zeroLineColor: "transparent",
+                            },
+                            ticks: {
+                                padding: 20,
+                                fontColor: "#9e9e9e"
+                            }
+                        }]
+                    }
+                };
+
+                var chart_labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'NOW'];
+                var chart_data = [
+                    [0, 3,   4, 245, 489, 1413,  5371, 28894,  75848, 149111, 236989, 408460],
+                    [1, 6, 105, 147,  32, 1358,  7063, 15310,  28802,  84873,  96004,  79410],
+                    [1, 9, 109, 394, 524, 2794, 12480, 44415, 105139, 234928, 334228, 489702],
+                    [0, 0,   0,   2,   3,   21,    42,   156,    425,    859,   1139,   1714]
+                ];
+
+
+                var ctx = document.getElementById("chartBig1").getContext('2d');
+
+                var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+                gradientStroke.addColorStop(1, 'rgba(72,72,176,0.1)');
+                gradientStroke.addColorStop(0.4, 'rgba(72,72,176,0.0)');
+                gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
+                var config = {
+                    type: 'line',
+                    data: {
+                        labels: chart_labels,
+                        datasets: [{
+                            label: "Cases",
+                            fill: true,
+                            backgroundColor: gradientStroke,
+                            borderColor: '#d346b1',
+                            borderWidth: 2,
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            pointBackgroundColor: '#d346b1',
+                            pointBorderColor: 'rgba(255,255,255,0)',
+                            pointHoverBackgroundColor: '#d346b1',
+                            pointBorderWidth: 20,
+                            pointHoverRadius: 4,
+                            pointHoverBorderWidth: 15,
+                            pointRadius: 4,
+                            data: chart_data[0],
+                        }]
+                    },
+                    options: gradientChartOptionsConfigurationWithTooltipPurple
+                };
+                var myChartData = new Chart(ctx, config);
+                $("#0").click(function () {
+                    var data = myChartData.config.data;
+                    data.datasets[0].data = chart_data[0];
+                    data.labels = chart_labels;
+                    myChartData.update();
+                });
+                $("#1").click(function () {
+                    var data = myChartData.config.data;
+                    data.datasets[0].data = chart_data[1];
+                    data.labels = chart_labels;
+                    myChartData.update();
+                });
+                $("#2").click(function () {
+                    var data = myChartData.config.data;
+                    data.datasets[0].data = chart_data[2];
+                    data.labels = chart_labels;
+                    myChartData.update();
+                });
+                $("#3").click(function () {
+                    var data = myChartData.config.data;
+                    data.datasets[0].data = chart_data[3];
+                    data.labels = chart_labels;
+                    myChartData.update();
+                });
+
+            },
+        }
+
+        $(document).ready(function () {
+            // Javascript method's body can be found in assets/js/demos.js
+            demo.initDashboardPageCharts();
+
+        });
+    </script>
+
+{% endblock javascripts %}
