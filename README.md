@@ -1,11 +1,10 @@
 # COVID Dashboard
 <br />
 
-> COVID Dashboard
+> Technology Stack
 
 - FrontEnd: Bootstrap Framework
 - Database: PostGreSQL
-- Session-Based Authentication, Forms validation
 - Deployment scripts: Docker, Gunicorn / Nginx
 
 <br />
