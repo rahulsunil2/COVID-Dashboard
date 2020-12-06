@@ -1,4 +1,4 @@
-# Black Dashboard Django
+# COVID Dashboard
 <br />
 
 > COVID Dashboard
