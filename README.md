@@ -47,10 +47,10 @@
    |         |    |-- login.html           # Login page
    |         |    |-- register.html        # Register page
    |         |
-   |      index.html                       # The default page
-   |     page-404.html                     # Error 404 page
-   |     page-500.html                     # Error 404 page
-   |       *.html                          # All other HTML pages
+   |         |-- index.html                # The default page
+   |         |-- page-404.html             # Error 404 page
+   |         |-- page-500.html             # Error 404 page
+   |         |-- *.html                    # All other HTML pages
    |
    |-- authentication/                     # Handles auth routes (login and register)
    |    |
