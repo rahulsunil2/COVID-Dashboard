@@ -1,11 +1,10 @@
-# Black Dashboard Django
+# COVID Dashboard
 <br />
 
-> COVID Dashboard
+> Technology Stack
 
 - FrontEnd: Bootstrap Framework
 - Database: PostGreSQL
-- Session-Based Authentication, Forms validation
 - Deployment scripts: Docker, Gunicorn / Nginx
 
 <br />
@@ -48,10 +47,10 @@
    |         |    |-- login.html           # Login page
    |         |    |-- register.html        # Register page
    |         |
-   |      index.html                       # The default page
-   |     page-404.html                     # Error 404 page
-   |     page-500.html                     # Error 404 page
-   |       *.html                          # All other HTML pages
+   |         |-- index.html                # The default page
+   |         |-- page-404.html             # Error 404 page
+   |         |-- page-500.html             # Error 404 page
+   |         |-- *.html                    # All other HTML pages
    |
    |-- authentication/                     # Handles auth routes (login and register)
    |    |
