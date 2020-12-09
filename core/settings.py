@@ -18,10 +18,11 @@ PROJECT_DIR = Path(__file__).parent
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False)
+DEBUG = config('DEBUG', default=True)
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+                 config('SERVER', default='127.0.0.1')]
 
 # Application definition
 
@@ -32,7 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'  # Enable the inner app 
+    'app'  # Enable the inner app
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'core.urls'
 LOGIN_REDIRECT_URL = "home"  # Route defined in app/urls.py
 LOGOUT_REDIRECT_URL = "home"  # Route defined in app/urls.py
-TEMPLATE_DIR = os.path.join(BASE_DIR, "core/templates")  # ROOT dir for templates
+TEMPLATE_DIR = os.path.join(
+    BASE_DIR, "core/templates")  # ROOT dir for templates
 
 TEMPLATES = [
     {
@@ -77,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'covidDashboard',
         'USER': 'postgres',
-        'PASSWORD': 'password',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',
     }

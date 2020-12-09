@@ -1,77 +1,91 @@
-{% extends 'layouts/base.html' %}
-
-{% block title %} UI Notifications {% endblock %}
+{% extends 'layouts/base.html' %} 
+{% block title %} UI Notifications {% endblock title %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
 
-{% block content %}
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Notifications</h4>
-                </div>
-                <div class="card-body">
-                    <div class="alert alert-info alert-with-icon" data-notify="container">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span data-notify="icon" class="tim-icons icon-bell-55"></span>
-                        <span data-notify="message">GO (Rt) No.2854 / 2020 / GAD - 17.09.2020 Revised Order of Procedure for Guest Workers Arriving in Kerala for Registration and Quarantine on COVID-19 Jagratha Portal </span>
-                    </div>
-                    <div class="alert alert-info alert-with-icon" data-notify="container">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span data-notify="icon" class="tim-icons icon-bell-55"></span>
-                        <span data-notify="message">GO (Rt) No.2793 / 2020 / GAD - 14.09.2020 Order issued regarding registration of guest workers on COVID-19 Jagratha Portal
-</span>
-                    </div>
-                </div>
-            </div>
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Notifications</h4>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info alert-with-icon" data-notify="container">
+          <button
+            type="button"
+            aria-hidden="true"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span data-notify="icon" class="tim-icons icon-bell-55"></span>
+          <span data-notify="message"
+            >GO (Rt) No.2854 / 2020 / GAD - 17.09.2020 Revised Order of
+            Procedure for Guest Workers Arriving in Kerala for Registration and
+            Quarantine on COVID-19 Jagratha Portal
+          </span>
         </div>
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Notification states</h4>
-                </div>
-                <div class="card-body">
-                    <div class="alert alert-primary">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span><b> Primary - </b> This is a regular notification made with ".alert-primary"</span>
-                    </div>
-                    <div class="alert alert-info">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span><b> Info - </b> This is a regular notification made with ".alert-info"</span>
-                    </div>
-                    <div class="alert alert-success">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span><b> Success - </b> This is a regular notification made with ".alert-success"</span>
-                    </div>
-                    <div class="alert alert-warning">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span><b> Warning - </b> This is a regular notification made with ".alert-warning"</span>
-                    </div>
-                    <div class="alert alert-danger">
-                        <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="tim-icons icon-simple-remove"></i>
-                        </button>
-                        <span><b> Danger - </b> This is a regular notification made with ".alert-danger"</span>
-                    </div>
-                </div>
-            </div>
+        <div class="alert alert-info alert-with-icon" data-notify="container">
+          <button
+            type="button"
+            aria-hidden="true"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+          <span data-notify="icon" class="tim-icons icon-bell-55"></span>
+          <span data-notify="message"
+            >GO (Rt) No.2793 / 2020 / GAD - 14.09.2020 Order issued regarding
+            registration of guest workers on COVID-19 Jagratha Portal
+          </span>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card alert">
+      <button
+            type="button"
+            aria-hidden="true"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <i class="tim-icons icon-simple-remove"></i>
+          </button>
+      <div class="card-header">
+        <h4 class="card-title">Notification states</h4>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-primary">
+          <span
+            ><b> Alert </b></span
+          >
+        </div>
+        <div class="alert alert-info">
+          <span
+            ><b> Info </b> </span
+          >
+        </div>
+        <div class="alert alert-warning">
+          <span
+            ><b> Warning </b></span
+          >
+        </div>
+        <div class="alert alert-danger">
+          <span
+            ><b> Danger </b></span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
 

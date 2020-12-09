@@ -30,3 +30,14 @@ class EssentialsRequest(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+
+class CovidData(models.Model):
+    totalConfirmed = models.IntegerField()
+    activeCases = models.IntegerField()
+    recoveredCases = models.IntegerField()
+    totalDeaths = models.IntegerField()
+    updateDate = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return(self.updateDate.strftime("%d %B, %Y"))
