@@ -1,0 +1,99 @@
+{% extends 'layouts/base.html' %} {% block title %} Page User {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Essentials Request</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{% url 'ask_help' %}">
+          {%csrf_token%}
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" name="number" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Items Required</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Milk, Bread, ..."
+                  name="items"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <input type="hidden" name="type" value="essentials" />
+            <button type="submit" class="btn btn-fill btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Medical Help</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="{% url 'ask_help' %}">
+          {%csrf_token%}
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" />
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Contact Number</label>
+                <input type="text" name="number" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Notes</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Chest Pain, Headache ..."
+                  name="items"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <input type="hidden" name="type" value="medical" />
+            <button type="submit" class="btn btn-fill btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

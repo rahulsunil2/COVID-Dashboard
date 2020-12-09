@@ -1,71 +1,73 @@
 <div class="sidebar">
-    <div class="sidebar-wrapper">
-
-        <div class="logo">
-            <a target="_blank"
-               href="#" class="simple-text logo-mini">
-                ASD
-            </a>
-            <a target="_blank"
-               href="#" class="simple-text logo-normal">
-                COVID Dashboard
-            </a>
-        </div>
-        <ul class="nav">
-            <ul class="nav">
-                <li>
-                    <a href="/">
-                        <i class="tim-icons icon-chart-pie-36"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ui-maps.html">
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Hotspots</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/ui-notifications.html">
-                        <i class="tim-icons icon-bell-55"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'containment_zones' %}">
-                        <i class="tim-icons icon-puzzle-10"></i>
-                        <p>Containment Zones</p>
-                    </a>
-                </li>
-                {% if user.is_authenticated %}
-                <li>
-                    <a href="{% url 'essentials_list' %}">
-                        <i class="tim-icons icon-single-02"></i>
-                        <p>Essentials List</p>
-                    </a>
-{#                </li>#}
-{#                    <li>#}
-{#                    <a href="/page-user.html">#}
-{#                        <i class="tim-icons icon-single-02"></i>#}
-{#                        <p>Add a containment zone</p>#}
-{#                    </a>#}
-{#                </li>#}
-                <li>
-                    <a href="{% url 'logout' %}">
-                        <i class="tim-icons icon-user-run"></i>
-                        <p>Logout</p>
-                    </a>
-                </li>
-            </ul>
-            {% else %}
-
-                <li>
-                    <a href="/login/">
-                        <i class="tim-icons icon-chart-pie-36"></i>
-                        <p>ADMIN LOGIN</p>
-                    </a>
-                </li>
-            {% endif %}
-        </ul>
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <a target="_blank" href="#" class="simple-text logo-mini"> ASD </a>
+      <a target="_blank" href="#" class="simple-text logo-normal">
+        COVID Dashboard
+      </a>
     </div>
+    <ul class="nav">
+      <ul class="nav">
+        <li>
+          <a href="/">
+            <i class="tim-icons icon-chart-pie-36"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li>
+          <a href="/ui-maps.html">
+            <i class="tim-icons icon-pin"></i>
+            <p>Hotspots</p>
+          </a>
+        </li>
+        <li>
+          <a href="/ui-notifications.html">
+            <i class="tim-icons icon-bell-55"></i>
+            <p>Notifications</p>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'containment_zones' %}">
+            <i class="tim-icons icon-puzzle-10"></i>
+            <p>Containment Zones</p>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'ask_help' %}">
+            <i class="tim-icons icon-puzzle-10"></i>
+            <p>Ask for Help!</p>
+          </a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+          <a href="{% url 'essentials_list' %}">
+            <i class="tim-icons icon-single-02"></i>
+            <p>Essentials List</p>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'medical_help' %}">
+            <i class="tim-icons icon-single-02"></i>
+            <p>Medical Help List</p>
+          </a>
+        </li>
+
+        <li>
+          <a href="{% url 'logout' %}">
+            <i class="tim-icons icon-user-run"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+      </ul>
+      {% else %}
+
+      <li>
+        <a href="/login/">
+          <i class="tim-icons icon-chart-pie-36"></i>
+          <p>ADMIN LOGIN</p>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
 </div>

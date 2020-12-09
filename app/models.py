@@ -32,6 +32,16 @@ class EssentialsRequest(models.Model):
         return str(self.name)
 
 
+class MedicalHelp(models.Model):
+    request_id = models.AutoField(primary_key=True, db_column='MID')
+    name = models.CharField(max_length=25)
+    contact_number = models.IntegerField()
+    notes = models.CharField(max_length=150)
+
+    def __str__(self):
+        return str(self.name)
+
+
 class CovidData(models.Model):
     totalConfirmed = models.IntegerField()
     activeCases = models.IntegerField()

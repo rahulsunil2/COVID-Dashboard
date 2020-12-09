@@ -12,7 +12,9 @@ urlpatterns = [
 
     path('containment_zones', views.containment_zones, name='containment_zones'),
     path('essentials_list', views.essential_items_list, name='essentials_list'),
-    # Matches any html file 
+    path('medical_help', views.medical_help_list, name='medical_help'),
+    path("ask_help", views.request_form, name='ask_help'),
+    # Matches any html file
     re_path(r'^.*\.html', views.pages, name='pages'),
 
     # The home page
