@@ -1,4 +1,4 @@
-FROM python:3.10.3-slim-bullseye
+FROM python:slim-bullseye
 
 ENV FLASK_APP run.py
 
